@@ -5,98 +5,54 @@ import { useSession } from "next-auth/react";
 
 import PromptCard from "./PromptCard";
 
-const PromptCardList = ({ data, handleTagClick }) => {
+const PromptCardList = ({ users, albums }) => {
   return (
-    <div className="mt-16 prompt_layout">
-      {data.map((post) => (
-        <PromptCard
-          key={post._id}
-          post={post}
-          handleTagClick={handleTagClick}
-        />
-      ))}
-    </div>
+    <>
+      <div className="pt-14">
+        <p>Number of users: {users.length}</p>
+      </div>
+      <div className="mt-10 prompt_layout">
+        {users.map((user) => (
+          <PromptCard key={user.id} user={user} albums={albums} />
+        ))}
+      </div>
+    </>
   );
 };
 
 const Feed = () => {
   const { data: session } = useSession();
-
-  const [allPosts, setAllPosts] = useState([]);
-
-  // Search states
-  const [searchText, setSearchText] = useState("");
-  const [searchTimeout, setSearchTimeout] = useState(null);
-  const [searchedResults, setSearchedResults] = useState([]);
-
-  const fetchPosts = async () => {
-    // const response = await fetch("/api/prompt");
-    const response = await fetch("https://jsonplaceholder.typicode.com/users");
-    const data = await response.json();
-    console.log(data);
-
-    setAllPosts(data);
-  };
+  const [users, setUsers] = useState([]);
+  const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    // if (!session?.user?.id) return;
-    fetchPosts();
+    const fetchUsers = async () => {
+      // const response = await fetch("/api/prompt");
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      const data = await response.json();
+      setUsers(data);
+    };
+
+    const fetchAlbums = async () => {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/albums"
+      );
+      const data = await response.json();
+      setAlbums(data);
+    };
+
+    fetchUsers();
+    fetchAlbums();
   }, []);
-
-  const filterPrompts = (searchtext) => {
-    const regex = new RegExp(searchtext, "i"); // 'i' flag for case-insensitive search
-    return allPosts.filter(
-      (item) =>
-        regex.test(item.creator.username) ||
-        regex.test(item.tag) ||
-        regex.test(item.prompt)
-    );
-  };
-
-  const handleSearchChange = (e) => {
-    clearTimeout(searchTimeout);
-    setSearchText(e.target.value);
-
-    // debounce method
-    setSearchTimeout(
-      setTimeout(() => {
-        const searchResult = filterPrompts(e.target.value);
-        setSearchedResults(searchResult);
-      }, 500)
-    );
-  };
-
-  const handleTagClick = (tagName) => {
-    setSearchText(tagName);
-
-    const searchResult = filterPrompts(tagName);
-    setSearchedResults(searchResult);
-  };
 
   return (
     <>
       {session?.user?.id ? (
         <section className="feed">
-          <form className="relative w-full flex-center">
-            <input
-              type="text"
-              placeholder="Search for a tag or a username"
-              value={searchText}
-              onChange={handleSearchChange}
-              required
-              className="search_input peer"
-            />
-          </form>
-
-          {/* All Prompts */}
-          {searchText ? (
-            <PromptCardList
-              data={searchedResults}
-              handleTagClick={handleTagClick}
-            />
-          ) : (
-            <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
-          )}
+          {/* All Users */}
+          <PromptCardList users={users} albums={albums} />
         </section>
       ) : (
         <p className="text-center text-red-400 text-xl py-10">
