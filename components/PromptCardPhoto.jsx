@@ -1,15 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 const PromptCardPhoto = ({ photos }) => {
-  const { data: session } = useSession();
-  const pathName = usePathname();
-  const router = useRouter();
   // console.log(albums);
 
   return (

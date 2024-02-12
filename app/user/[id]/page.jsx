@@ -29,7 +29,7 @@ const UserPage = () => {
       // console.log(userAlbums);
       setAlbums(userAlbums);
     };
-    console.log("this is id", id);
+    // console.log("this is id - ", id);
     // if (id) {
     fetchUserData();
     fetchUserAlbums();
