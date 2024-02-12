@@ -1,11 +1,14 @@
 // pages/photo/[id].js
 "use client";
 
+import Image from "next/image";
+import { useSession } from "next-auth/react";
+
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
-import Image from "next/image";
 
 const PhotoPage = () => {
+  const { data: session } = useSession();
   const router = useRouter();
   const { id } = useParams();
   const [photo, setPhoto] = useState(null);
@@ -53,48 +56,55 @@ const PhotoPage = () => {
   }
 
   return (
-    <div className="flex flex-col ">
-      <div>
-        <h1 className="font-satoshi font-semibold text-gray-900">
-          AlbumId: <span className="text-[#EA6A0B]">{photo.albumId}</span>
-        </h1>
-      </div>
-      <div className="py-5">
-        <Image
-          src={photo.url}
-          width={300}
-          height={300}
-          alt={photo.title}
-          className=" rounded-md"
-        />
-      </div>
-      {isEditing ? (
-        <div>
-          <form className="relative w-full flex-center mb-2">
-            <input
-              placeholder="Edit photo title"
-              type="text"
-              value={newTitle}
-              onChange={(e) => setNewTitle(e.target.value)}
-              className="search_input peer"
+    <>
+      {session?.user?.id ? (
+        <div className="flex flex-col ">
+          <div>
+            <h1 className="font-satoshi font-semibold text-gray-900">
+              AlbumId: <span className="text-[#EA6A0B]">{photo.albumId}</span>
+            </h1>
+          </div>
+          <div className="py-5">
+            <Image
+              src={photo.url}
+              width={300}
+              height={300}
+              alt={photo.title}
+              className=" rounded-md"
             />
-          </form>
-          <button className="black_btn" onClick={handleEdit}>
-            Save
-          </button>
+          </div>
+          {isEditing ? (
+            <div>
+              <form className="relative w-full flex-center mb-2">
+                <input
+                  placeholder="Edit photo title"
+                  type="text"
+                  value={newTitle}
+                  onChange={(e) => setNewTitle(e.target.value)}
+                  className="search_input peer"
+                />
+              </form>
+              <button className="black_btn" onClick={handleEdit}>
+                Save
+              </button>
+            </div>
+          ) : (
+            <div>
+              <h3 className="font-satoshi font-semibold text-gray-900 pb-5">
+                <span className="text-[#EA6A0B]">Title:</span> {photo.title}
+              </h3>
+              <button className="black_btn" onClick={() => setIsEditing(true)}>
+                Edit Title
+              </button>
+            </div>
+          )}
         </div>
       ) : (
-        <div>
-          {/* <h2 className="pb-5">Title: {photo.title}</h2> */}
-          <h3 className="font-satoshi font-semibold text-gray-900 pb-5">
-            <span className="text-[#EA6A0B]">Title:</span> {photo.title}
-          </h3>
-          <button className="black_btn" onClick={() => setIsEditing(true)}>
-            Edit Title
-          </button>
-        </div>
+        <p className="text-center text-red-400 text-lg md:text-xl py-10">
+          You need to be Logged in to access Data!
+        </p>
       )}
-    </div>
+    </>
   );
 };
 

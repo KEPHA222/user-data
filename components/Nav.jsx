@@ -28,22 +28,18 @@ const Nav = () => {
           height={30}
           className="object-contain"
         />
-        <p className="logo_text">Promptopia</p>
+        <p className="logo_text">JSONPlaceholder</p>
       </Link>
 
       {/* Desktop Navigation */}
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
-            {/* <Link href="/create-prompt" className="black_btn">
-              Create Post
-            </Link> */}
-
             <button type="button" onClick={signOut} className="outline_btn">
               Sign Out
             </button>
 
-            <Link href="/profile">
+            <Link href="/">
               <Image
                 src={session?.user.image}
                 width={37}
@@ -88,27 +84,13 @@ const Nav = () => {
 
             {toggleDropdown && (
               <div className="dropdown">
-                <Link
-                  href="/profile"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  My Profile
-                </Link>
-                <Link
-                  href="/create-prompt"
-                  className="dropdown_link"
-                  onClick={() => setToggleDropdown(false)}
-                >
-                  Create Prompt
-                </Link>
                 <button
                   type="button"
                   onClick={() => {
                     setToggleDropdown(false);
                     signOut();
                   }}
-                  className="mt-5 w-full black_btn"
+                  className="w-full black_btn"
                 >
                   Sign Out
                 </button>
