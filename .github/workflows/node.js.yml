@@ -1,0 +1,37 @@
+#THIS IS A SAMPLE OF A GITHUB ACTIONS PIPELINE, BUT I AM USING VERCEL, DEPLOYMENT IS AUTOMATED.
+
+# name: User-Data.js CI
+
+# on:
+#   push:
+#     branches: [main]
+#   pull_request:
+#     branches: [main]
+
+# jobs:
+#   build:
+#     runs-on: self-hosted
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v2
+
+#       - name: Setup Node.js
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 14 # You can change this to the desired Node.js version
+
+#       - name: Install dependencies and build
+#         run: |
+#           npm install
+#           npm run build
+#           cd ..
+
+#       - name: Start and stop PM2 process
+#         run: |
+#           pm2 start app.js --name my-node-app || true
+#           sleep 5
+#           pm2 stop my-node-app || true
+#           pm2 save
+
+#       - name: Restart Apache
+#         run: sudo service apache2 restart

@@ -1,15 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 
-const PromptCardAlbum = ({ albums, index }) => {
-  const { data: session } = useSession();
-  const pathName = usePathname();
-  const router = useRouter();
-  console.log(albums);
+const PromptCardAlbum = ({ albums }) => {
+  // console.log(albums);
 
   return (
     <div className="prompt_card">
