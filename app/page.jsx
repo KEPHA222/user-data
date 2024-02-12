@@ -5,11 +5,11 @@ const Home = () => (
     <h1 className="head_text text-center">
       Discover & Share
       <br className="max-md:hidden" />
-      <span className="orange_gradient text-center"> AI-Powered Prompts</span>
+      <span className="orange_gradient text-center"> Your User Data</span>
     </h1>
     <p className="desc text-center">
-      Promptopia is an open-source AI prompting tool for modern world to
-      discover, create and share creative prompts
+      JSONPlaceholder is a free online REST API that you can use whenever you
+      need some fake data.
     </p>
 
     <Feed />

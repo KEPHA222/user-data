@@ -5,27 +5,13 @@ import { useSession } from "next-auth/react";
 
 import PromptCardAlbum from "./PromptCardAlbum";
 import Link from "next/link";
+import NavigationButtons from "./NavigationButtons";
 
 const PromptCardList = ({ albums }) => {
   return (
     <>
-      {/* <div className="pt-14">
-        <h3 className="font-satoshi font-semibold text-gray-900">
-          Number of Albums: {albums.length}
-        </h3>
-      </div> */}
       <div className="flex flex-col items-center justify-center">
-        <div className="flex gap-5 pb-10">
-          <Link href="/" className="black_btn">
-            Users
-          </Link>
-          <Link href="/albums" className="black_btn">
-            Albums
-          </Link>
-          <Link href="/photos" className="black_btn">
-            Photos
-          </Link>
-        </div>
+        <NavigationButtons />
         <div>
           <h3 className="font-satoshi font-semibold text-gray-900">
             Number of Albums: {albums.length}
@@ -56,7 +42,6 @@ const Albums = () => {
       setAlbums(data);
     };
 
-    // fetchUsers();
     fetchAlbums();
   }, []);
 
@@ -68,8 +53,8 @@ const Albums = () => {
           <PromptCardList albums={albums} />
         </section>
       ) : (
-        <p className="text-center text-red-400 text-xl py-10">
-          You need to be logged in to access Data!
+        <p className="text-center text-red-400 text-lg md:text-xl py-10">
+          You need to be Logged in to access Data!
         </p>
       )}
     </>
