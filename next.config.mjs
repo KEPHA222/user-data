@@ -13,6 +13,7 @@ const nextConfig = {
         port: "",
       },
     ],
+    unoptimized: true,
   },
   webpack(config) {
     config.experiments = {
