@@ -4,6 +4,7 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
+import Link from "next/link";
 
 const UserPage = () => {
   const { data: session } = useSession();
@@ -78,7 +79,13 @@ const UserPage = () => {
               <ul>
                 {albums.map((album, index) => (
                   <li key={album.id} className="pt-2">
-                    {index + 1}. {album.title}
+                    {index + 1}.{" "}
+                    <Link
+                      href={`/album/${album.id}`}
+                      className=" hover:text-[#FF5722]"
+                    >
+                      {album.title}
+                    </Link>
                   </li>
                 ))}
               </ul>
