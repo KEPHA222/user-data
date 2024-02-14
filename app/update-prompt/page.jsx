@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
+import React from "react";
 
 const UpdatePrompt = () => {
   const router = useRouter();

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import React from "react";
 
 const PromptCardAlbum = ({ albums }) => {
   // console.log(albums);

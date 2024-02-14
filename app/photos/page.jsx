@@ -1,5 +1,5 @@
-import Feed from "@components/Feed";
 import Photos from "@components/Photos";
+import React from "react";
 
 const Home = () => (
   <section className="w-full flex-center flex-col">

@@ -1,6 +1,7 @@
 // pages/user/[id].js
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";

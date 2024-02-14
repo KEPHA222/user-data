@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+import React from "react";
+
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
     <section className="w-full max-w-full flex-start flex-col">

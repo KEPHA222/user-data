@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import React from "react";
 
 const PromptCardPhoto = ({ photos }) => {
   // console.log(albums);

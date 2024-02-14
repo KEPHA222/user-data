@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
 import PromptCard from "./PromptCard";
-import Link from "next/link";
 import NavigationButtons from "./NavigationButtons";
+import React from "react";
 
 const PromptCardList = ({ users, albums }) => {
   return (

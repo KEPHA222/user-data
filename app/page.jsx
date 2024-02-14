@@ -1,4 +1,5 @@
-import Feed from "@components/Feed";
+import Feed from "../components/Feed";
+import React from "react";
 
 const Home = () => (
   <section className="w-full flex-center flex-col">
@@ -17,3 +18,15 @@ const Home = () => (
 );
 
 export default Home;
+
+// import Link from "next/link";
+// import React from "react";
+
+// export default function Home() {
+//   return (
+//     <div>
+//       <h1>Home</h1>
+//       <Link href="/about">About</Link>
+//     </div>
+//   );
+// }

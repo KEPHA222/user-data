@@ -4,6 +4,8 @@
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
+
+import React from "react";
 import Link from "next/link";
 
 const UserPage = () => {
