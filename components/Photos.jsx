@@ -32,6 +32,7 @@ const Photos = () => {
   const { data: session } = useSession();
   const [photos, setPhotos] = useState([]);
 
+  // Fetching Photos (5000)
   useEffect(() => {
     const fetchAlbums = async () => {
       const response = await fetch(

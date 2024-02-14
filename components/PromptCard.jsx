@@ -1,17 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { useSession } from "next-auth/react";
-import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import React from "react";
 
-const PromptCard = ({ user, albums, post }) => {
-  const { data: session } = useSession();
-  const pathName = usePathname();
-  const router = useRouter();
-
+const PromptCard = ({ user, albums }) => {
+  // console.log("User and Albums", user, albums);
   return (
+    // Display Each User Card
     <div className="prompt_card">
       <Link href={`/user/${user.id}`}>
         <div className="flex justify-between items-start gap-5">

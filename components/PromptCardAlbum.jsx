@@ -4,9 +4,10 @@ import Link from "next/link";
 import React from "react";
 
 const PromptCardAlbum = ({ albums }) => {
-  // console.log(albums);
+  // console.log("Albums", albums);
 
   return (
+    // Display Each Album Card
     <div className="prompt_card">
       <Link href={`/album/${albums.id}`}>
         <div className="flex justify-between items-start gap-5">

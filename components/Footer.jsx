@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 const Footer = () => {
+  // Display footer
   return (
     <div className="mt-20">
       <p className="text-center text-black text-xs md:text-sm py-2">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 const NavigationButtons = () => {
+  //For easier page Navigation
   return (
     <div className="flex gap-5 pb-10">
       <Link href="/" className="black_btn">

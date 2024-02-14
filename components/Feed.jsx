@@ -32,6 +32,7 @@ const Feed = () => {
   const [users, setUsers] = useState([]);
   const [albums, setAlbums] = useState([]);
 
+  // Fetching Users and their no. of Albums
   useEffect(() => {
     const fetchUsers = async () => {
       const response = await fetch(
