@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import React from "react";
 
 const PromptCard = ({ user, albums, post }) => {
   const { data: session } = useSession();

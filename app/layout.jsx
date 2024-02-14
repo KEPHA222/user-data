@@ -2,6 +2,7 @@ import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 import Footer from "@components/Footer";
+import React from "react";
 
 export const metadata = {
   title: "Resources",

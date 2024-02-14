@@ -1,5 +1,5 @@
 import Albums from "@components/Albums";
-import Feed from "@components/Feed";
+import React from "react";
 
 const Home = () => (
   <section className="w-full flex-center flex-col">

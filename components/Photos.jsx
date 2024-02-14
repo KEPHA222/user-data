@@ -1,9 +1,10 @@
 "use client";
 
+import React from "react";
+
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
-import Link from "next/link";
 import PromptCardPhoto from "./PromptCardPhoto";
 import NavigationButtons from "./NavigationButtons";
 

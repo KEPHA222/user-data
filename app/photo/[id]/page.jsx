@@ -2,8 +2,9 @@
 "use client";
 
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+import React from "react";
 
+import { useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import { useRouter, useParams } from "next/navigation";
 
