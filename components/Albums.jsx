@@ -33,6 +33,7 @@ const Albums = () => {
   const [users, setUsers] = useState([]);
   const [albums, setAlbums] = useState([]);
 
+  // Fetching All Albums(100)
   useEffect(() => {
     const fetchAlbums = async () => {
       const response = await fetch(

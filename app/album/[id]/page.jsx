@@ -1,4 +1,3 @@
-// pages/user/[id].js
 "use client";
 
 import React from "react";
@@ -13,6 +12,7 @@ const UserPage = () => {
   const [user, setUser] = useState(null);
   const [albums, setAlbums] = useState([]);
 
+  // Fetching Single Album and Its' Photos
   useEffect(() => {
     const fetchAlbumsData = async () => {
       const res = await fetch(
@@ -31,11 +31,9 @@ const UserPage = () => {
       //   console.log(userAlbums);
       setAlbums(userAlbums);
     };
-    // console.log("this is id: ", id);
-    // if (id) {
+
     fetchAlbumsData();
     fetchAlbumsPhotos();
-    // }
   }, [id]);
 
   if (!user) {

@@ -3,6 +3,7 @@ import { FaSadTear } from "react-icons/fa";
 import React from "react";
 
 const CustomError = () => {
+  // 404 - Page Not Found
   return (
     <>
       <div className="flex flex-col items-center justify-center min-h-60">

@@ -15,6 +15,7 @@ const UserPage = () => {
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
+    // Fetching user based on their albums
     const fetchUserData = async () => {
       const res = await fetch(
         `https://jsonplaceholder.typicode.com/users/${id}`
@@ -24,6 +25,7 @@ const UserPage = () => {
       setUser(userData);
     };
 
+    // Fetching albums for each users
     const fetchUserAlbums = async () => {
       const res = await fetch(
         `https://jsonplaceholder.typicode.com/users/${id}/albums`
@@ -32,11 +34,9 @@ const UserPage = () => {
       // console.log(userAlbums);
       setAlbums(userAlbums);
     };
-    // console.log("this is id - ", id);
-    // if (id) {
+
     fetchUserData();
     fetchUserAlbums();
-    // }
   }, [id]);
 
   if (!user) {

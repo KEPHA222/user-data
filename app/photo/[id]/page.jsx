@@ -1,4 +1,3 @@
-// pages/photo/[id].js
 "use client";
 
 import Image from "next/image";
@@ -16,6 +15,7 @@ const PhotoPage = () => {
   const [newTitle, setNewTitle] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
+  // Fetching Single Photo
   useEffect(() => {
     const fetchPhoto = async () => {
       const res = await fetch(
@@ -30,6 +30,7 @@ const PhotoPage = () => {
     }
   }, [id]);
 
+  // Enable editing-PATCH for single Photo Title
   const handleEdit = async () => {
     try {
       const res = await fetch(

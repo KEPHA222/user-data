@@ -8,6 +8,7 @@ const PromptCardPhoto = ({ photos }) => {
   // console.log(albums);
 
   return (
+    // Display Each photo Card
     <div className="prompt_card">
       <Link href={`/photo/${photos.id}`}>
         <div className="flex justify-between items-start gap-5">
