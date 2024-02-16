@@ -1,12 +1,9 @@
-// pages/user/[id].js
 "use client";
 
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
-
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const UserPage = () => {
   const { data: session } = useSession();
