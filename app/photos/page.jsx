@@ -1,5 +1,5 @@
-import Photos from "@components/Photos";
 import React from "react";
+import Photos from "@components/Photos";
 
 const Home = () => (
   <section className="w-full flex-center flex-col">

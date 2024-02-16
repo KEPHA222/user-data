@@ -1,11 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 
 import PromptCard from "./PromptCard";
 import NavigationButtons from "./NavigationButtons";
-import React from "react";
 
 const PromptCardList = ({ users, albums }) => {
   return (
@@ -14,7 +13,8 @@ const PromptCardList = ({ users, albums }) => {
         <NavigationButtons />
         <div>
           <h3 className="font-satoshi font-semibold text-gray-900">
-            Number of Users: {users.length}
+            Number of Users:{" "}
+            <span className=" text-[#EA7E0B]">{users.length}</span>
           </h3>
         </div>
       </div>
