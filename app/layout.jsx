@@ -3,6 +3,7 @@ import "@styles/globals.css";
 import Nav from "@components/Nav";
 import Provider from "@components/Provider";
 import Footer from "@components/Footer";
+import ScrollToTopButton from "@components/ScrollToTopButton";
 
 export const metadata = {
   title: "Resources",
@@ -24,6 +25,7 @@ const RootLayout = ({ children }) => {
           <main className="app">
             <Nav />
             {children}
+            <ScrollToTopButton />
             <Footer />
           </main>
         </Provider>
