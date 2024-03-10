@@ -22,7 +22,7 @@ const UserPage = () => {
       setUser(userData);
     };
 
-    // Fetching albums for each users
+    // Fetching albums for each user
     const fetchUserAlbums = async () => {
       const res = await fetch(
         `https://jsonplaceholder.typicode.com/users/${id}/albums`
@@ -63,14 +63,11 @@ const UserPage = () => {
                   <h3 className="font-satoshi font-semibold text-gray-900">
                     Phone - {user.phone}
                   </h3>
-
-                  <p className="font-inter text-sm text-gray-500">
-                    Email - {user.email}
-                  </p>
                 </div>
               </div>
             </div>
 
+            {/* 10 dynamics albums for each user  */}
             <div className=" font-satoshi text-sm text-gray-700">
               <h3 className="font-satoshi font-semibold text-gray-900 underline pt-2">
                 User Albums
