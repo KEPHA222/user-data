@@ -9,11 +9,11 @@ const Footer = () => {
       <p className="text-center text-black text-xs md:text-sm py-2">
         Coded and maintained by ❤️{" "}
         <Link
-          href="https://www.savannahinformatics.com/"
+          href="https://github.com/KEPHA222"
           target="_blank"
           className=" underline"
         >
-          Savannah
+          Kepha
         </Link>
       </p>
     </div>
